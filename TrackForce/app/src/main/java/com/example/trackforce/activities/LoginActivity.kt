@@ -2,19 +2,22 @@ package com.example.trackforce.activities
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import com.example.trackforce.R
+import com.example.trackforce.viewmodels.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
-    private lateinit var viewModel: AuthViewModel
+    private val viewModel: AuthViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val btnSignup = findViewById<Button>(R.id.btnSignup)
